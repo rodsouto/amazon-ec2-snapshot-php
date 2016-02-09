@@ -1,6 +1,6 @@
 <?php
 
-include 'vendor/autoload.php';
+include __DIR__.'/vendor/autoload.php';
 
 /**
  * Usage
@@ -13,13 +13,15 @@ if(empty($argv[1])) {
     die('Empty cli command.');
 }
 
-if (!file_exists('config.php')) {
+$configFile = __DIR__.'/config.php';
+
+if (!file_exists($configFile)) {
     die('Missing config file');
 }
 
 $AWS_KEY = $AWS_SECRET = $AWS_VOLUME_ID = $AWS_VERSION = $AWS_REGION = $SNAPSHOT_DESCRIPTION = null;
 
-extract(include 'config.php', EXTR_OVERWRITE);
+extract(include $configFile, EXTR_OVERWRITE);
 
 $clientConfig = [
     'version' => $AWS_VERSION,
