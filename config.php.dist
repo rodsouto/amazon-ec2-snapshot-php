@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'AWS_VOLUME_ID' => '',
+    'AWS_KEY' => '',
+    'AWS_SECRET' => '',
+    'AWS_VERSION' => 'latest',
+    'AWS_REGION' => 'us-east-1',
+];
