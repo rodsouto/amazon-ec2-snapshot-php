@@ -17,7 +17,7 @@ if (!file_exists('config.php')) {
     die('Missing config file');
 }
 
-$AWS_KEY = $AWS_SECRET = $AWS_VOLUME_ID = $AWS_VERSION = $AWS_REGION = null;
+$AWS_KEY = $AWS_SECRET = $AWS_VOLUME_ID = $AWS_VERSION = $AWS_REGION = $SNAPSHOT_DESCRIPTION = null;
 
 extract(include 'config.php', EXTR_OVERWRITE);
 
@@ -45,7 +45,7 @@ switch($argv[1]) {
         $createConfig = [
             'DryRun' => false,
             'VolumeId' => $AWS_VOLUME_ID,
-            'Description' => 'MX Server Snapshot',
+            'Description' => $SNAPSHOT_DESCRIPTION,
         ];
         var_export($ec2->createSnapshot($createConfig)->toArray());
         break;

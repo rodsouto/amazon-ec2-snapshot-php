@@ -6,4 +6,5 @@ return [
     'AWS_SECRET' => '',
     'AWS_VERSION' => 'latest',
     'AWS_REGION' => 'us-east-1',
+    'SNAPSHOT_DESCRIPTION' => '',
 ];
